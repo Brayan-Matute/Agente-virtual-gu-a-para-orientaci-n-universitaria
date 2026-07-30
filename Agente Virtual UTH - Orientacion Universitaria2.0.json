@@ -1,0 +1,786 @@
+{
+  "name": "Agente Virtual UTH - Orientacion Universitaria2.0",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "agente-uth-chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b68073ed-b61f-4149-83c0-255fb5c0f276",
+      "name": "Webhook (Web)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "agente-uth-chat"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
+      "id": "ceaa3592-43d6-4aba-903f-894480dc634b",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -64,
+        256
+      ],
+      "webhookId": "telegram-trigger-uth",
+      "credentials": {
+        "telegramApi": {
+          "id": "O0Kyl0kIFfr3pvsp",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normaliza la entrada del Webhook (web) al formato comun\nconst body = $input.item.json.body || $input.item.json;\nreturn {\n  json: {\n    mensaje: body.mensaje || \"\",\n    session_id: body.session_id || (\"web-\" + Math.random().toString(36).substring(2, 10)),\n    canal: \"web\"\n  }\n};"
+      },
+      "id": "adb5f044-a789-475c-9f10-19c568533eac",
+      "name": "Preparar Item Web",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item.json;\n\nconst MENU = {\n  \"Infraestructura\": [\n    \"\\u00bfD\\u00f3nde pago la matr\\u00edcula o mensualidad?\",\n    \"\\u00bfD\\u00f3nde queda el aula o el edificio de mi clase?\",\n    \"\\u00bfD\\u00f3nde est\\u00e1n ubicadas las oficinas de Registro y Admisiones?\",\n    \"\\u00bfD\\u00f3nde se encuentra la biblioteca?\",\n    \"\\u00bfD\\u00f3nde est\\u00e1n los laboratorios de c\\u00f3mputo?\",\n    \"\\u00bfD\\u00f3nde se encuentran las \\u00e1reas de comida?\",\n    \"\\u00bfD\\u00f3nde puedo estacionar mi veh\\u00edculo?\",\n    \"\\u00bfD\\u00f3nde est\\u00e1 la cl\\u00ednica o enfermer\\u00eda del campus?\"\n  ],\n  \"Horarios\": [\n    \"\\u00bfCu\\u00e1l es el horario de atenci\\u00f3n de Registro?\",\n    \"\\u00bfA qu\\u00e9 hora inician y terminan las clases en las diferentes jornadas?\",\n    \"\\u00bfCu\\u00e1les son las fechas de inicio y fin del per\\u00edodo acad\\u00e9mico actual?\",\n    \"\\u00bfCu\\u00e1ndo es el per\\u00edodo para adiciones y cancelaciones de asignaturas?\",\n    \"\\u00bfCu\\u00e1ndo son los ex\\u00e1menes parciales?\",\n    \"\\u00bfCu\\u00e1ndo son los per\\u00edodos de vacaciones o receso acad\\u00e9mico?\"\n  ],\n  \"Tramites\": [\n    \"\\u00bfCu\\u00e1ntas clases puedo matricular por per\\u00edodo?\",\n    \"\\u00bfC\\u00f3mo puedo realizar la prematr\\u00edcula o matr\\u00edcula de mis clases?\",\n    \"\\u00bfQu\\u00e9 documentaci\\u00f3n requiero para solicitar una certificaci\\u00f3n de estudios?\",\n    \"\\u00bfC\\u00f3mo se realiza el proceso formal para el retiro de un per\\u00edodo acad\\u00e9mico?\",\n    \"\\u00bfC\\u00f3mo puedo solicitar un cambio de carrera?\",\n    \"\\u00bfC\\u00f3mo solicito equivalencias de materias de otra universidad?\",\n    \"\\u00bfD\\u00f3nde puedo consultar el pensum de mi carrera?\",\n    \"\\u00bfCu\\u00e1les son los requisitos para solicitar mi graduaci\\u00f3n?\",\n    \"\\u00bfC\\u00f3mo gestiono mi pr\\u00e1ctica profesional supervisada?\"\n  ],\n  \"Soporte\": [\n    \"Olvid\\u00e9 mi clave del campus virtual, \\u00bfqu\\u00e9 hago?\",\n    \"\\u00bfC\\u00f3mo restablezco mi contrase\\u00f1a del correo institucional?\",\n    \"\\u00bfQu\\u00e9 becas ofrece la instituci\\u00f3n?\",\n    \"\\u00bfLa instituci\\u00f3n ofrece orientaci\\u00f3n psicol\\u00f3gica?\",\n    \"\\u00bfCu\\u00e1les son las modalidades y bancos autorizados para el pago de matr\\u00edcula?\",\n    \"\\u00bfC\\u00f3mo obtengo o renuevo mi carnet estudiantil?\",\n    \"\\u00bfC\\u00f3mo me conecto al wifi del campus?\"\n  ]\n};\n\nfunction botonesCategorias() {\n  return {\n    inline_keyboard: [\n      [{ text: \"\\ud83c\\udfe2 Infraestructura\", callback_data: \"cat:Infraestructura\" }],\n      [{ text: \"\\ud83d\\udd52 Horarios\",         callback_data: \"cat:Horarios\" }],\n      [{ text: \"\\ud83d\\udcc4 Tr\\u00e1mites Acad\\u00e9micos\", callback_data: \"cat:Tramites\" }],\n      [{ text: \"\\ud83d\\udcac Soporte y Cuentas\", callback_data: \"cat:Soporte\" }],\n      [{ text: \"\\ud83d\\ude4b Hablar con un asesor\", callback_data: \"asesor\" }]\n    ]\n  };\n}\n\nfunction botonesSubmenu(categoria) {\n  const preguntas = MENU[categoria] || [];\n  const filas = preguntas.map((p, i) => [{\n    text: p.length > 60 ? p.substring(0, 57) + \"...\" : p,\n    callback_data: \"preg:\" + categoria + \":\" + i\n  }]);\n  filas.push([{ text: \"\\u2b05\\ufe0f Volver al men\\u00fa\", callback_data: \"volver_menu\" }]);\n  return { inline_keyboard: filas };\n}\n\nlet salida = {};\n\nif (item.callback_query) {\n  const cq = item.callback_query;\n  const chatId   = cq.message.chat.id;\n  const messageId = cq.message.message_id;\n  const data = cq.data;\n  const callbackQueryId = cq.id;\n\n  if (data === \"volver_menu\") {\n    salida = { accion: \"menu_categorias\", chat_id: chatId, message_id: messageId,\n               callback_query_id: callbackQueryId, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  } else if (data === \"asesor\") {\n    salida = { accion: \"consulta\", mensaje: \"hablar con un asesor\",\n               chat_id: chatId, message_id: messageId,\n               callback_query_id: callbackQueryId, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  } else if (data.startsWith(\"cat:\")) {\n    const categoria = data.split(\":\")[1];\n    salida = { accion: \"submenu\", categoria: categoria,\n               chat_id: chatId, message_id: messageId,\n               callback_query_id: callbackQueryId, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  } else if (data.startsWith(\"preg:\")) {\n    const partes = data.split(\":\");\n    const categoria = partes[1];\n    const idx = parseInt(partes[2], 10);\n    const preguntaReal = (MENU[categoria] || [])[idx] || \"\";\n    salida = { accion: \"consulta\", mensaje: preguntaReal,\n               chat_id: chatId, message_id: messageId,\n               callback_query_id: callbackQueryId, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  }\n} else if (item.message) {\n  const msg = item.message;\n  const chatId = msg.chat.id;\n  const texto = (msg.text || \"\").trim();\n  if (texto === \"/start\" || texto.toLowerCase() === \"menu\" || texto.toLowerCase() === \"/menu\") {\n    salida = { accion: \"menu_categorias\", chat_id: chatId, message_id: null,\n               callback_query_id: null, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  } else {\n    salida = { accion: \"consulta\", mensaje: texto, chat_id: chatId, message_id: null,\n               callback_query_id: null, session_id: \"tg-\" + chatId, canal: \"telegram\" };\n  }\n}\n\nsalida._botonesCategorias = botonesCategorias();\nif (salida.accion === \"submenu\") {\n  salida._botonesSubmenu = botonesSubmenu(salida.categoria);\n}\n\nreturn { json: salida };"
+      },
+      "id": "35f5f60b-059a-4406-8d03-58a5b1204a97",
+      "name": "Preparar Item Telegram",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        176,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT fallos_consecutivos FROM sesiones WHERE session_id = '{{ $json.session_id }}';",
+        "options": {
+          "queryReplacement": "={{ $json.session_id }}"
+        }
+      },
+      "id": "5ce74585-b84e-419e-a158-e23f843ee8dd",
+      "name": "Leer Sesion MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        672,
+        112
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "55uWDM1GdhudslnR",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, categoria, palabras_clave, pregunta, respuesta FROM knowledge_base;",
+        "options": {}
+      },
+      "id": "1c4cdc6b-7ef9-41bc-a1d8-8a78cc7ac148",
+      "name": "Leer FAQs MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        672,
+        288
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "55uWDM1GdhudslnR",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "b654867c-7b51-4b98-8678-5103b0b9feb9",
+      "name": "Unir Resultados MySQL",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        880,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recuperamos de forma segura los resultados de los nodos de MySQL\nconst filaSesion = $('Leer Sesion MySQL').all();\nconst filasFaqs = $('Leer FAQs MySQL').all();\n\n// Recuperamos el item original (mensaje/session_id/canal/chat_id)\nlet original = {};\ntry {\n  original = $('Preparar Item Web').item.json;\n} catch (e) {\n  try {\n    original = $('Preparar Item Telegram').item.json;\n  } catch (err) {\n    original = { mensaje: \"\", session_id: \"desconocida\", canal: \"web\" };\n  }\n}\n\n// Validamos de forma estricta si existe un registro de fallos previos\nlet fallosPrevios = 0;\nif (filaSesion.length > 0 && filaSesion[0].json && filaSesion[0].json.fallos_consecutivos !== undefined) {\n  fallosPrevios = Number(filaSesion[0].json.fallos_consecutivos);\n}\n\n// Mapeamos el arreglo de FAQs de la base de datos\nconst faqs = filasFaqs.map(f => f.json);\n\n// Retornamos el objeto unificado garantizando que \"mensaje\" nunca sea undefined\nreturn {\n  json: {\n    mensaje: original.mensaje || \"\",\n    session_id: original.session_id || \"web-\" + Math.random().toString(36).substring(2, 10),\n    canal: original.canal || \"web\",\n    chat_id: original.chat_id || null,\n    fallos_previos: fallosPrevios,\n    faqs: faqs\n  }\n};"
+      },
+      "id": "ba6cb1e1-a56b-49e3-8eb3-75f84998c6e7",
+      "name": "Combinar Datos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// ============================================================\n// NODO: \"Motor del Chatbot\" (tipo Code, modo \"Run Once for Each Item\")\n// Pegar este codigo completo en el nodo Code de n8n.\n//\n// ESPERA que el item de entrada tenga estas propiedades (json):\n//   - mensaje        (string) texto escrito por el usuario\n//   - session_id     (string) identificador de sesion\n//   - canal          (string) 'web' o 'telegram'\n//   - fallos_previos (number) contador de fallos traido de MySQL (0 si no existe)\n//   - faqs           (array)  filas de la tabla knowledge_base traidas de MySQL\n//\n// DEVUELVE (json de salida):\n//   tipo, texto, faq_id, categoria, puntaje, tokens (string),\n//   resultado, nuevo_contador_fallos, session_id, canal, mensaje\n// ============================================================\n\nconst STOP_WORDS = new Set([\n  \"el\",\"la\",\"los\",\"las\",\"un\",\"una\",\"unos\",\"unas\",\"de\",\"del\",\n  \"al\",\"a\",\"en\",\"y\",\"o\",\"que\",\"es\",\"son\",\"para\",\"por\",\"con\",\n  \"sin\",\"se\",\"su\",\"sus\",\"mi\",\"mis\",\"tu\",\"tus\",\"yo\",\"como\",\n  \"donde\",\"cual\",\"cuales\",\"cuando\",\"quien\",\"quienes\",\"este\",\n  \"esta\",\"estos\",\"estas\",\"ese\",\"esa\",\"esos\",\"esas\",\"lo\",\"le\",\n  \"les\",\"me\",\"te\",\"nos\",\"ya\",\"muy\",\"mas\",\"pero\",\"si\",\"no\",\n  \"puedo\",\"puedes\",\"tengo\",\"tiene\",\"hay\",\"soy\",\"eres\",\n  \"estoy\",\"ser\",\"fue\",\"ha\",\"he\",\"han\",\n  \"universidad\",\"institucion\",\"ofrecen\",\"ofrece\"\n]);\n\nfunction quitarTildes(texto) {\n  return texto.normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\");\n}\n\nfunction normalizarTexto(texto) {\n  let t = String(texto).toLowerCase();\n  t = quitarTildes(t);\n  t = t.replace(/[^a-z0-9\\s]/g, \" \");\n  t = t.replace(/\\s+/g, \" \").trim();\n  return t;\n}\n\nfunction tokenizar(texto) {\n  const normalizado = normalizarTexto(texto);\n  if (!normalizado) return [];\n  return normalizado.split(\" \").filter(t => t && !STOP_WORDS.has(t));\n}\n\nfunction prefijoComun(a, b) {\n  const n = Math.min(a.length, b.length);\n  let i = 0;\n  while (i < n && a[i] === b[i]) i++;\n  return i;\n}\n\nfunction calcularPuntaje(tokensUsuario, palabrasClaveFaq) {\n  let puntaje = 0;\n  const setTokensUsuario = new Set(tokensUsuario);\n\n  for (const fraseClave of palabrasClaveFaq) {\n    const tokensClave = tokenizar(fraseClave);\n    if (tokensClave.length === 0) continue;\n\n    const coincidenciasExactas = tokensClave.filter(tk => setTokensUsuario.has(tk));\n    puntaje += 3 * coincidenciasExactas.length;\n\n    if (tokensClave.length > 1 && coincidenciasExactas.length === tokensClave.length) {\n      puntaje += 3;\n    }\n\n    const tokensClaveRestantes = tokensClave.filter(tk => !setTokensUsuario.has(tk));\n    for (const tu of setTokensUsuario) {\n      for (const tk of tokensClaveRestantes) {\n        if (prefijoComun(tu, tk) >= 5) {\n          puntaje += 1;\n        }\n      }\n    }\n  }\n  return puntaje;\n}\n\nfunction esComandoTransferencia(texto) {\n  const comandos = new Set([\"humano\",\"asesor\",\"soporte\",\"agente\",\"persona\",\"operador\"]);\n  const tokens = new Set(tokenizar(texto));\n  const frasesDirectas = [\"hablar con un asesor\",\"hablar con un humano\",\"quiero un humano\",\"necesito ayuda humana\"];\n  const textoNorm = normalizarTexto(texto);\n  if (frasesDirectas.some(f => textoNorm.includes(normalizarTexto(f)))) return true;\n  for (const c of comandos) if (tokens.has(c)) return true;\n  return false;\n}\n\nconst UMBRAL_MINIMO = 3;\nconst INTENTOS_MAX_FALLO = 3;\n\n// ------------------------------------------------------------\n// Punto de entrada del nodo Code\n// ------------------------------------------------------------\nconst item = $input.item.json;\nconst mensaje = item.mensaje || \"\";\nconst sessionId = item.session_id || \"desconocida\";\nconst canal = item.canal || \"web\";\nconst fallosPrevios = Number(item.fallos_previos || 0);\n\n// Mapeo seguro de FAQs con doble bloque de parseo y limpieza de cadenas\nconst faqs = (item.faqs || []).map(f => {\n  let pc = f.palabras_clave;\n  if (typeof pc === \"string\") {\n    try {\n      pc = JSON.parse(pc);\n    } catch (e) {\n      try {\n        let limpia = pc.trim().replace(/^['\"‘“‘]+|['\"’ ”’]+$/g, '');\n        pc = JSON.parse(limpia);\n      } catch (err) {\n        pc = [];\n      }\n    }\n  }\n  return {\n    ...f,\n    palabras_clave: Array.isArray(pc) ? pc : []\n  };\n});\n\nlet resultado;\n\nif (esComandoTransferencia(mensaje)) {\n  resultado = {\n    tipo: \"transferencia\",\n    texto: \"Te comunico con un agente humano. Canales de atención presencial: Edificio Principal, Oficina de Registro. Horario: Lun-Vie 8:00 AM - 7:00 PM, Sab 8:00 AM - 12:00 PM. Correo: soporte@universidad.edu\",\n    faq_id: null,\n    categoria: null,\n    puntaje: 0,\n    tokens: tokenizar(mensaje).join(\" \"),\n    resultado_log: \"transferencia_explicita\",\n    nuevo_contador_fallos: 0\n  };\n} else {\n  const tokens = tokenizar(mensaje);\n  let mejorFaq = null;\n  let mejorPuntaje = 0;\n\n  for (const faq of faqs) {\n    const puntaje = calcularPuntaje(tokens, faq.palabras_clave || []);\n    if (puntaje > mejorPuntaje) {\n      mejorPuntaje = puntaje;\n      mejorFaq = faq;\n    }\n  }\n\n  if (mejorFaq && mejorPuntaje >= UMBRAL_MINIMO) {\n    resultado = {\n      tipo: \"respuesta\",\n      texto: mejorFaq.respuesta,\n      faq_id: mejorFaq.id,\n      categoria: mejorFaq.categoria,\n      puntaje: mejorPuntaje,\n      tokens: tokens.join(\" \"),\n      resultado_log: \"respondida\",\n      nuevo_contador_fallos: 0\n    };\n  } else {\n    const fallosActuales = fallosPrevios + 1;\n\n    if (fallosActuales >= INTENTOS_MAX_FALLO) {\n      resultado = {\n        tipo: \"transferencia\",\n        texto: \"No logré identificar tu consulta tras varios intentos. Te transfiero con un agente humano. Correo: soporte@universidad.edu | Oficina de Registro, Lun-Vie 8:00 AM - 7:00 PM.\",\n        faq_id: null,\n        categoria: null,\n        puntaje: mejorPuntaje,\n        tokens: tokens.join(\" \"),\n        resultado_log: \"transferencia_bucle_error\",\n        nuevo_contador_fallos: 0\n      };\n    } else {\n      resultado = {\n        tipo: \"sin_resultado\",\n        texto: \"No logré entender tu consulta. ¿Podrías reformularla? También puedes escribir 'menu' para ver las categorías disponibles, o 'asesor' para hablar con una persona.\",\n        faq_id: null,\n        categoria: null,\n        puntaje: mejorPuntaje,\n        tokens: tokens.join(\" \"),\n        resultado_log: \"sin_resultado\",\n        nuevo_contador_fallos: fallosActuales\n      };\n    }\n  }\n}\n\nreturn {\n  json: {\n    ...resultado,\n    session_id: sessionId,\n    canal,\n    mensaje_original: mensaje\n  }\n};"
+      },
+      "id": "bf01b9fc-02b0-4a51-866a-b1b6e8dd90a5",
+      "name": "Motor del Chatbot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO sesiones (session_id, fallos_consecutivos) \nVALUES ($1, $2) \nON DUPLICATE KEY UPDATE fallos_consecutivos = $3;",
+        "options": {
+          "queryReplacement": "={{ $json.session_id }},{{ $json.nuevo_contador_fallos }},{{ $json.nuevo_contador_fallos }}"
+        }
+      },
+      "id": "ec49597f-4e70-44f2-8858-a821112a1172",
+      "name": "Actualizar Sesion MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1328,
+        112
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "55uWDM1GdhudslnR",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO auditoria_consultas (\n  session_id, \n  canal, \n  consulta_original, \n  tokens_detectados, \n  faq_id_asignada, \n  categoria, \n  puntaje, \n  resultado, \n  intentos_fallidos_sesion\n) \nVALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+        "options": {
+          "queryReplacement": "={{ $json.session_id }},{{ $json.canal }},{{ $json.mensaje_original }},{{ $json.tokens }},{{ $json.faq_id }},{{ $json.categoria }},{{ $json.puntaje }},{{ $json.resultado_log }},{{ $json.nuevo_contador_fallos }}"
+        }
+      },
+      "id": "4f0238f5-86bb-4963-8f73-77307b6f5d2b",
+      "name": "Registrar Auditoria MySQL",
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        1552,
+        112
+      ],
+      "credentials": {
+        "mySql": {
+          "id": "55uWDM1GdhudslnR",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Combinar Datos').item.json.canal }}",
+                    "rightValue": "telegram",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "2295f34d-e50b-4675-b44d-db4bee83e31b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "telegram"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "34d59098-f6c2-4de4-a04f-162528d17ba8",
+                    "leftValue": "={{ $('Combinar Datos').item.json.canal }}",
+                    "rightValue": "web",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=web"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5554440d-b745-4252-a437-ff9e9dd0903c",
+      "name": "Enrutar por Canal",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const motor = $('Motor del Chatbot').item.json;\n\nconst prepTelegram = $('Preparar Item Telegram').item.json;\n\nconst preguntaDetectada = motor.mensaje_original || \"Consulta Realizada\";\n\nconst textoFinal = `❓ *Pregunta:* ${preguntaDetectada}\\n\\n💡 *Respuesta:* ${motor.texto}`;\n\nreturn {\n  json: {\n    chat_id: prepTelegram.chat_id,\n    text: textoFinal,\n    reply_markup: prepTelegram._botonesCategorias \n  }\n};"
+      },
+      "id": "8c4b1299-1df7-4b0f-8981-622439e8aac0",
+      "name": "Preparar Respuesta Telegram",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1984,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.text }}",
+        "replyMarkup": "={{ typeof $json.reply_markup === 'object' ? JSON.stringify($json.reply_markup) : $json.reply_markup }}",
+        "forceReply": {},
+        "replyKeyboardOptions": {},
+        "replyKeyboardRemove": {},
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "c353a5de-5762-442d-8a4d-4320a15ee899",
+      "name": "Enviar Respuesta Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2208,
+        0
+      ],
+      "webhookId": "c49d335e-271f-4991-990d-dfc37bffa33f",
+      "credentials": {
+        "telegramApi": {
+          "id": "O0Kyl0kIFfr3pvsp",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $('Motor del Chatbot').item.json }}",
+        "options": {}
+      },
+      "id": "bae73b57-c70f-451e-a750-c9747b8e869e",
+      "name": "Responder a Web",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1984,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "menu_categorias",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "sw-menu"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "menu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "submenu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "sw-sub"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "submenu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.accion }}",
+                    "rightValue": "consulta",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "sw-cons"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "consulta"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8f66906-fffa-47df-afd8-0d298e0d589d",
+      "name": "Enrutar Accion Telegram",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        400,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const TELEGRAM_TOKEN = \"8662701445:AAH4zydqY5ST0nEU750vp1Mqr3pdu2OEQRM\";\nconst item = $input.item.json;\n\nlet texto = \"\";\nlet teclado = null;\n\nif (item.accion === \"menu_categorias\") {\n  texto = \"\\u00a1Hola! Soy tu Asistente Universitario Virtual \\ud83c\\udf93\\n\\u00bfEn que puedo ayudarte hoy?\";\n  teclado = item._botonesCategorias;\n} else if (item.accion === \"submenu\") {\n  texto = \"Preguntas frecuentes \\u2014 \" + item.categoria + \":\";\n  teclado = item._botonesSubmenu;\n}\n\nconst editar = !!item.message_id;\nconst metodo = editar ? \"editMessageText\" : \"sendMessage\";\nconst url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/${metodo}`;\n\nconst body = { chat_id: item.chat_id, text: texto, reply_markup: teclado };\nif (editar) { body.message_id = item.message_id; }\n\nreturn { json: { url, body, callback_query_id: item.callback_query_id || null } };"
+      },
+      "id": "66b49588-808d-40b9-a44c-050885f88ebe",
+      "name": "Preparar Llamada Telegram",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        448
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.url }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "={{ $json.body.chat_id }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.body.text }}"
+            },
+            {
+              "name": "reply_markup",
+              "value": "={{ $json.body.reply_markup }}"
+            },
+            {
+              "name": "message_id",
+              "value": "={{ $json.body.message_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0dfc708e-e78f-47b8-8334-07c6e5a65c63",
+      "name": "Enviar Menu Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        896,
+        448
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const TELEGRAM_TOKEN = \"8662701445:AAH4zydqY5ST0nEU750vp1Mqr3pdu2OEQRM\";\nconst item = $input.item.json;\nreturn {\n  json: {\n    debe_llamar: !!item.callback_query_id,\n    url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/answerCallbackQuery`,\n    body: { callback_query_id: item.callback_query_id }\n  }\n};"
+      },
+      "id": "b4a6ae68-014f-43f3-a14a-3eb58a2d8285",
+      "name": "Preparar Answer Callback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.debe_llamar }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              },
+              "id": "if-cb"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c7750ec4-217c-4db9-a0b5-67caf54c8e36",
+      "name": "Vino de Boton",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1344,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.url }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "6386eaac-0711-4011-bc07-cc0aa7612525",
+      "name": "Cerrar Callback Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        304
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook (Web)": {
+      "main": [
+        [
+          {
+            "node": "Preparar Item Web",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Preparar Item Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Item Web": {
+      "main": [
+        [
+          {
+            "node": "Leer Sesion MySQL",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Leer FAQs MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Item Telegram": {
+      "main": [
+        [
+          {
+            "node": "Enrutar Accion Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Sesion MySQL": {
+      "main": [
+        [
+          {
+            "node": "Unir Resultados MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer FAQs MySQL": {
+      "main": [
+        [
+          {
+            "node": "Unir Resultados MySQL",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Unir Resultados MySQL": {
+      "main": [
+        [
+          {
+            "node": "Combinar Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combinar Datos": {
+      "main": [
+        [
+          {
+            "node": "Motor del Chatbot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Motor del Chatbot": {
+      "main": [
+        [
+          {
+            "node": "Actualizar Sesion MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar Sesion MySQL": {
+      "main": [
+        [
+          {
+            "node": "Registrar Auditoria MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registrar Auditoria MySQL": {
+      "main": [
+        [
+          {
+            "node": "Enrutar por Canal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enrutar por Canal": {
+      "main": [
+        [
+          {
+            "node": "Preparar Respuesta Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Responder a Web",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Respuesta Telegram": {
+      "main": [
+        [
+          {
+            "node": "Enviar Respuesta Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enrutar Accion Telegram": {
+      "main": [
+        [
+          {
+            "node": "Preparar Llamada Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Preparar Llamada Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Leer Sesion MySQL",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Leer FAQs MySQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Llamada Telegram": {
+      "main": [
+        [
+          {
+            "node": "Enviar Menu Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Menu Telegram": {
+      "main": [
+        [
+          {
+            "node": "Preparar Answer Callback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Respuesta Telegram": {
+      "main": [
+        [
+          {
+            "node": "Preparar Answer Callback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Answer Callback": {
+      "main": [
+        [
+          {
+            "node": "Vino de Boton",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vino de Boton": {
+      "main": [
+        [
+          {
+            "node": "Cerrar Callback Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "a5cd1840-bd98-45be-8c09-4772e792afae",
+  "meta": {
+    "instanceId": "456b92e4088cacd1780a912a124d1233fa5544e4829ea71cca5ee0b8ce8c8b74"
+  },
+  "nodeGroups": [],
+  "id": "22hjeLTjJSJ1WPkb",
+  "tags": []
+}

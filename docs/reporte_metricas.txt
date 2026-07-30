@@ -1,0 +1,25 @@
+==================================================================
+ MÉTRICAS DE DESEMPEÑO - AGENTE VIRTUAL DE ORIENTACIÓN (UTH)
+ Generado: 2026-07-30 18:00:23
+==================================================================
+ Total de consultas registradas:            50
+   · Respondidas por texto libre:           38
+   · Respondidas por navegación de menú:    6
+   · No reconocidas (reformulación pedida): 3
+   · Transferencias explícitas (asesor):    2
+   · Transferencias por bucle de error:     1
+------------------------------------------------------------------
+ >> TASA DE RESOLUCIÓN AUTOMÁTICA: 91.7%  (44/48 consultas de contenido)
+ >> Tasa de derivación a humano:   6.0%  (explícitas + bucle, sobre el total)
+------------------------------------------------------------------
+ Consultas resueltas por categoría:
+   · Infraestructura        10
+   · Procesos Academicos    10
+   · Soporte y Cuentas      10
+   · Horarios               7
+   · Vida Estudiantil       7
+------------------------------------------------------------------
+ Retroalimentación del estudiante (18 valoraciones):
+   · Útiles:    16  |  No útiles: 2
+ >> ÍNDICE DE SATISFACCIÓN: 88.9%
+==================================================================

@@ -1,0 +1,1031 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "fase": "Tercer Parcial - Proyecto Final",
+    "total_preguntas": 45,
+    "categorias": [
+      "Infraestructura",
+      "Horarios",
+      "Procesos Academicos",
+      "Soporte y Cuentas",
+      "Vida Estudiantil"
+    ],
+    "campos": [
+      "id",
+      "categoria",
+      "palabras_clave",
+      "pregunta",
+      "respuesta",
+      "explicacion",
+      "relacionadas"
+    ]
+  },
+  "faqs": [
+    {
+      "id": "INF01",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "pagar",
+        "pago",
+        "matricula",
+        "mensualidad",
+        "caja",
+        "donde pago"
+      ],
+      "pregunta": "¿Dónde pago la matrícula o mensualidad?",
+      "respuesta": "Puedes realizar tus pagos en el área de Caja ubicada en el edificio principal, o en línea a través del portal estudiantil con tu tarjeta de crédito/débito.",
+      "explicacion": [
+        "Reúne tu número de cuenta y el monto a pagar (puedes verlo en el portal estudiantil, sección Estado de Cuenta).",
+        "Presencial: acude a Caja en el edificio principal en horario de atención y solicita tu recibo.",
+        "En línea: ingresa al portal estudiantil > Pagos, selecciona el período y paga con tarjeta de crédito/débito.",
+        "Conserva el comprobante; lo necesitarás para trámites como matrícula o carnet."
+      ],
+      "relacionadas": [
+        "SOP05",
+        "SOP10",
+        "HOR01"
+      ]
+    },
+    {
+      "id": "INF02",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "aula",
+        "salon",
+        "edificio",
+        "ubicacion",
+        "salon de clases"
+      ],
+      "pregunta": "¿Dónde queda el aula o el edificio de mi clase?",
+      "respuesta": "La distribución de aulas se publica en el mapa del campus disponible en recepción y en el portal estudiantil. Indícame el código del aula (ej. B-204) y te oriento al edificio correspondiente.",
+      "explicacion": [
+        "Revisa tu horario en el portal estudiantil: cada clase indica un código de aula (ej. B-204).",
+        "La letra identifica el edificio y el primer dígito el nivel (B-204 = edificio B, segundo nivel, aula 04).",
+        "Consulta el mapa del campus disponible en recepción o en el portal estudiantil.",
+        "Si sigues perdido, pregunta en la recepción del edificio principal."
+      ],
+      "relacionadas": [
+        "INF03",
+        "INF09",
+        "HOR02"
+      ]
+    },
+    {
+      "id": "INF03",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "registro",
+        "admisiones",
+        "oficina",
+        "donde esta registro"
+      ],
+      "pregunta": "¿Dónde están ubicadas las oficinas de Registro y Admisiones?",
+      "respuesta": "Las oficinas de Registro y Admisiones se encuentran en el edificio principal, planta baja, junto al área de Caja.",
+      "explicacion": [
+        "Dirígete al edificio principal, planta baja.",
+        "Registro y Admisiones están junto al área de Caja.",
+        "Lleva tu carnet o número de cuenta para cualquier trámite."
+      ],
+      "relacionadas": [
+        "HOR01",
+        "ACA03",
+        "INF01"
+      ]
+    },
+    {
+      "id": "INF04",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "biblioteca",
+        "libros",
+        "sala de estudio",
+        "ubicacion biblioteca",
+        "queda biblioteca"
+      ],
+      "pregunta": "¿Dónde se encuentra la biblioteca?",
+      "respuesta": "La biblioteca está ubicada en el edificio central, segundo nivel. Su horario regular es de lunes a viernes de 7:00 AM a 8:00 PM y sábados de 8:00 AM a 12:00 PM.",
+      "explicacion": [
+        "La biblioteca está en el edificio central, segundo nivel.",
+        "Presenta tu carnet estudiantil vigente al ingresar.",
+        "Puedes consultar el catálogo y reservar salas de estudio desde el portal estudiantil."
+      ],
+      "relacionadas": [
+        "HOR07",
+        "INF10",
+        "SOP06"
+      ]
+    },
+    {
+      "id": "INF05",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "laboratorio",
+        "computo",
+        "computadoras",
+        "lab",
+        "laboratorios de computo",
+        "laboratorios"
+      ],
+      "pregunta": "¿Dónde están los laboratorios de cómputo?",
+      "respuesta": "Los laboratorios de cómputo están distribuidos en el edificio de Ingeniería, niveles 1 y 2. El acceso requiere carnet estudiantil vigente.",
+      "explicacion": [
+        "Los laboratorios están en el edificio de Ingeniería, niveles 1 y 2.",
+        "El acceso requiere carnet estudiantil vigente.",
+        "Verifica en la puerta de cada laboratorio el horario de uso libre (fuera de clases programadas)."
+      ],
+      "relacionadas": [
+        "HOR08",
+        "SOP07",
+        "SOP06"
+      ]
+    },
+    {
+      "id": "INF06",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "comida",
+        "cafeteria",
+        "comer",
+        "almorzar"
+      ],
+      "pregunta": "¿Dónde se encuentran las áreas de comida?",
+      "respuesta": "La cafetería principal está en la plaza central del campus, y existen kioscos adicionales cerca del edificio de Ingeniería y el edificio de Negocios.",
+      "explicacion": [
+        "La cafetería principal está en la plaza central del campus.",
+        "Hay kioscos adicionales cerca de los edificios de Ingeniería y de Negocios.",
+        "Los horarios de cafetería cubren las tres jornadas académicas."
+      ],
+      "relacionadas": [
+        "INF08",
+        "VID03",
+        "INF02"
+      ]
+    },
+    {
+      "id": "INF07",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "parqueo",
+        "estacionamiento",
+        "carro",
+        "moto"
+      ],
+      "pregunta": "¿Dónde puedo estacionar mi vehículo?",
+      "respuesta": "El campus cuenta con parqueo vehicular en la entrada principal y un área específica para motocicletas junto al edificio de Ingeniería. El acceso requiere el carnet vehicular institucional.",
+      "explicacion": [
+        "El parqueo vehicular está en la entrada principal del campus.",
+        "Las motocicletas tienen un área específica junto al edificio de Ingeniería.",
+        "Para ingresar necesitas presentar tu carnet estudiantil vigente en la garita de seguridad."
+      ],
+      "relacionadas": [
+        "SOP06",
+        "INF02",
+        "INF08"
+      ]
+    },
+    {
+      "id": "INF08",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "enfermeria",
+        "clinica",
+        "primeros auxilios"
+      ],
+      "pregunta": "¿Dónde está la clínica o enfermería del campus?",
+      "respuesta": "La clínica estudiantil se encuentra en el edificio de Bienestar Universitario, planta baja, frente a la cancha deportiva.",
+      "explicacion": [
+        "La clínica estudiantil está en el edificio de Bienestar Universitario, planta baja, frente a la cancha deportiva.",
+        "La atención de primeros auxilios es gratuita para estudiantes con carnet vigente.",
+        "Para emergencias dentro del campus, avisa también al personal de seguridad más cercano."
+      ],
+      "relacionadas": [
+        "SOP04",
+        "VID01",
+        "SOP06"
+      ]
+    },
+    {
+      "id": "INF09",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "auditorio",
+        "usos multiples",
+        "salon de eventos",
+        "sala de conferencias",
+        "queda auditorio",
+        "auditorio principal"
+      ],
+      "pregunta": "¿Dónde queda el auditorio o los salones de usos múltiples?",
+      "respuesta": "El auditorio principal está en el edificio central, primer nivel. Los salones de usos múltiples se encuentran en el edificio de Bienestar Universitario y se reservan a través de la administración del campus.",
+      "explicacion": [
+        "El auditorio principal está en el edificio central, primer nivel.",
+        "Los salones de usos múltiples están en el edificio de Bienestar Universitario.",
+        "Para reservar un espacio, presenta tu solicitud en la administración del campus con al menos 5 días de anticipación."
+      ],
+      "relacionadas": [
+        "VID03",
+        "INF02",
+        "VID02"
+      ]
+    },
+    {
+      "id": "INF10",
+      "categoria": "Infraestructura",
+      "palabras_clave": [
+        "libreria",
+        "fotocopias",
+        "fotocopiado",
+        "impresiones",
+        "imprimir"
+      ],
+      "pregunta": "¿Dónde está la librería o el centro de fotocopiado?",
+      "respuesta": "La librería y el centro de fotocopiado e impresiones están en la plaza central, junto a la cafetería principal. Ofrecen impresión, escaneo, empastados y venta de útiles.",
+      "explicacion": [
+        "Ubícalos en la plaza central del campus, junto a la cafetería principal.",
+        "Servicios disponibles: fotocopias, impresiones, escaneo, empastados y venta de útiles.",
+        "En los laboratorios de cómputo también puedes imprimir con tu cuenta de estudiante."
+      ],
+      "relacionadas": [
+        "INF06",
+        "INF05",
+        "INF04"
+      ]
+    },
+    {
+      "id": "HOR01",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "horario registro",
+        "atencion registro",
+        "cuando atiende registro"
+      ],
+      "pregunta": "¿Cuál es el horario de atención de Registro?",
+      "respuesta": "La oficina de Registro atiende de lunes a viernes de 8:00 AM a 7:00 PM, y los sábados de 8:00 AM a 12:00 PM.",
+      "explicacion": [
+        "Lunes a viernes: 8:00 AM a 7:00 PM.",
+        "Sábados: 8:00 AM a 12:00 PM.",
+        "En períodos de matrícula el horario puede ampliarse; revisa los avisos del portal estudiantil."
+      ],
+      "relacionadas": [
+        "INF03",
+        "ACA03",
+        "HOR03"
+      ]
+    },
+    {
+      "id": "HOR02",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "jornada",
+        "matutina",
+        "vespertina",
+        "nocturna",
+        "hora inicio clases"
+      ],
+      "pregunta": "¿A qué hora inician y terminan las clases en las diferentes jornadas?",
+      "respuesta": "Jornada matutina: 6:00 AM a 12:00 PM. Jornada vespertina: 12:30 PM a 6:00 PM. Jornada nocturna: 6:15 PM a 10:00 PM.",
+      "explicacion": [
+        "Jornada matutina: 6:00 AM a 12:00 PM.",
+        "Jornada vespertina: 12:30 PM a 6:00 PM.",
+        "Jornada nocturna: 6:15 PM a 10:00 PM.",
+        "Tu horario exacto por asignatura aparece en el portal estudiantil, sección Horario."
+      ],
+      "relacionadas": [
+        "HOR03",
+        "INF02",
+        "HOR05"
+      ]
+    },
+    {
+      "id": "HOR03",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "periodo academico",
+        "inicio periodo",
+        "fin periodo",
+        "fechas importantes"
+      ],
+      "pregunta": "¿Cuáles son las fechas de inicio y fin del período académico actual?",
+      "respuesta": "El período académico vigente inicia la primera semana de cada cuatrimestre. Puedes consultar las fechas exactas en el calendario académico publicado en el portal estudiantil.",
+      "explicacion": [
+        "Ingresa al portal estudiantil, sección Calendario Académico.",
+        "Ubica el cuatrimestre vigente: allí aparecen la fecha de inicio y de finalización de clases.",
+        "El mismo calendario incluye fechas de exámenes, feriados y recesos."
+      ],
+      "relacionadas": [
+        "HOR04",
+        "HOR05",
+        "HOR06"
+      ]
+    },
+    {
+      "id": "HOR04",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "adicion",
+        "cancelacion",
+        "agregar clase",
+        "quitar clase"
+      ],
+      "pregunta": "¿Cuándo es el período para adiciones y cancelaciones de asignaturas?",
+      "respuesta": "El período de adiciones y cancelaciones se habilita durante las dos primeras semanas posteriores al inicio de clases, según el calendario académico vigente.",
+      "explicacion": [
+        "El período de adiciones y cancelaciones abre durante las dos primeras semanas después del inicio de clases.",
+        "Realiza el trámite desde el portal estudiantil > Matrícula > Adiciones/Cancelaciones.",
+        "Pasada la fecha límite, cualquier cambio requiere solicitud formal en Registro."
+      ],
+      "relacionadas": [
+        "ACA02",
+        "ACA04",
+        "HOR03"
+      ]
+    },
+    {
+      "id": "HOR05",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "examen",
+        "parcial",
+        "fecha examen",
+        "calendario examenes"
+      ],
+      "pregunta": "¿Cuándo son los exámenes parciales?",
+      "respuesta": "Las fechas de exámenes parciales se publican en el calendario académico oficial al inicio de cada cuatrimestre y pueden variar según la sección.",
+      "explicacion": [
+        "Las fechas de parciales se publican en el calendario académico oficial al inicio del cuatrimestre.",
+        "Cada docente confirma en clase la fecha exacta de su sección.",
+        "Si no puedes presentar un examen, consulta el proceso de reposición."
+      ],
+      "relacionadas": [
+        "ACA10",
+        "HOR03",
+        "ACA11"
+      ]
+    },
+    {
+      "id": "HOR06",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "vacaciones",
+        "receso",
+        "dias feriados"
+      ],
+      "pregunta": "¿Cuándo son los períodos de vacaciones o receso académico?",
+      "respuesta": "Los períodos de receso académico se establecen en el calendario institucional anual, disponible en el portal estudiantil y en Registro.",
+      "explicacion": [
+        "Los recesos están definidos en el calendario institucional anual.",
+        "Puedes consultarlo en el portal estudiantil o directamente en Registro.",
+        "Los feriados nacionales se respetan según el calendario oficial del país."
+      ],
+      "relacionadas": [
+        "HOR03",
+        "HOR05",
+        "HOR01"
+      ]
+    },
+    {
+      "id": "HOR07",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "horario biblioteca",
+        "hora abre biblioteca",
+        "hora cierra biblioteca"
+      ],
+      "pregunta": "¿Cuál es el horario de la biblioteca?",
+      "respuesta": "La biblioteca atiende de lunes a viernes de 7:00 AM a 8:00 PM y sábados de 8:00 AM a 12:00 PM. En semanas de exámenes el horario se amplía; revisa los avisos del portal estudiantil.",
+      "explicacion": [
+        "Lunes a viernes: 7:00 AM a 8:00 PM.",
+        "Sábados: 8:00 AM a 12:00 PM.",
+        "En semanas de exámenes el horario se amplía; los avisos se publican en el portal estudiantil."
+      ],
+      "relacionadas": [
+        "INF04",
+        "HOR05",
+        "HOR01"
+      ]
+    },
+    {
+      "id": "HOR08",
+      "categoria": "Horarios",
+      "palabras_clave": [
+        "horario laboratorio",
+        "hora laboratorios",
+        "laboratorios abiertos"
+      ],
+      "pregunta": "¿Cuál es el horario de los laboratorios de cómputo?",
+      "respuesta": "Los laboratorios de cómputo abren de lunes a sábado de 7:00 AM a 9:00 PM. Fuera de las clases programadas puedes usarlos libremente presentando tu carnet estudiantil.",
+      "explicacion": [
+        "Lunes a sábado: 7:00 AM a 9:00 PM.",
+        "Fuera de clases programadas, el uso es libre presentando carnet estudiantil vigente.",
+        "El calendario de clases por laboratorio está publicado en la puerta de cada sala."
+      ],
+      "relacionadas": [
+        "INF05",
+        "SOP07",
+        "HOR07"
+      ]
+    },
+    {
+      "id": "ACA01",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "matricular",
+        "matricula",
+        "clases por periodo",
+        "limite clases"
+      ],
+      "pregunta": "¿Cuántas clases puedo matricular por período?",
+      "respuesta": "El límite estándar es de 4 asignaturas, pero depende de tu índice académico del período anterior y la aprobación de tu coordinador de carrera.",
+      "explicacion": [
+        "El límite estándar es de 4 asignaturas por período.",
+        "Tu índice académico del período anterior puede ampliar o reducir ese límite.",
+        "Cargas mayores requieren aprobación del coordinador de carrera."
+      ],
+      "relacionadas": [
+        "ACA12",
+        "ACA02",
+        "ACA07"
+      ]
+    },
+    {
+      "id": "ACA02",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "prematricula",
+        "como matricular",
+        "proceso matricula"
+      ],
+      "pregunta": "¿Cómo puedo realizar la prematrícula o matrícula de mis clases?",
+      "respuesta": "Ingresa al portal estudiantil con tu usuario y contraseña, selecciona la opción 'Matrícula', elige tus asignaturas disponibles según tu pensum y confirma el pago correspondiente.",
+      "explicacion": [
+        "Ingresa al portal estudiantil con tu usuario y contraseña.",
+        "Entra a la opción Matrícula y revisa las asignaturas disponibles según tu pensum.",
+        "Selecciona tus clases y confirma la matrícula.",
+        "Verifica que tu estado de cuenta quede al día para que la matrícula sea válida."
+      ],
+      "relacionadas": [
+        "ACA01",
+        "HOR04",
+        "INF01"
+      ]
+    },
+    {
+      "id": "ACA03",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "certificacion",
+        "historial academico",
+        "documentos requeridos",
+        "certificacion de notas",
+        "certificacion estudios",
+        "constancia de estudios"
+      ],
+      "pregunta": "¿Qué documentación requiero para solicitar una certificación de estudios?",
+      "respuesta": "Debes presentar tu carnet estudiantil vigente, completar el formulario de solicitud en Registro y realizar el pago del arancel correspondiente.",
+      "explicacion": [
+        "Completa el formulario de solicitud en la oficina de Registro.",
+        "Presenta tu carnet estudiantil vigente.",
+        "Paga el arancel correspondiente en Caja y entrega el comprobante.",
+        "Registro te indicará la fecha de entrega del documento."
+      ],
+      "relacionadas": [
+        "HOR01",
+        "SOP10",
+        "ACA08"
+      ]
+    },
+    {
+      "id": "ACA04",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "retiro",
+        "retirar periodo",
+        "abandonar clases"
+      ],
+      "pregunta": "¿Cómo se realiza el proceso formal para el retiro de un período académico?",
+      "respuesta": "Debes presentar una solicitud formal por escrito en Registro dentro del plazo establecido en el calendario académico, adjuntando la justificación correspondiente.",
+      "explicacion": [
+        "Presenta una solicitud formal por escrito en Registro, dentro del plazo del calendario académico.",
+        "Adjunta la justificación correspondiente (laboral, médica, personal).",
+        "Registro te confirmará la resolución y los efectos sobre tu historial y pagos."
+      ],
+      "relacionadas": [
+        "HOR04",
+        "ACA05",
+        "HOR03"
+      ]
+    },
+    {
+      "id": "ACA05",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "cambio carrera",
+        "cambiar carrera"
+      ],
+      "pregunta": "¿Cómo puedo solicitar un cambio de carrera?",
+      "respuesta": "El cambio de carrera se solicita en la oficina de Registro mediante un formulario específico, sujeto a la disponibilidad de cupos y aprobación de la dirección académica.",
+      "explicacion": [
+        "Solicita el formulario de cambio de carrera en la oficina de Registro.",
+        "El cambio está sujeto a disponibilidad de cupos y a la aprobación de la dirección de la carrera destino.",
+        "Si te aprueban, solicita la convalidación de las asignaturas ya aprobadas."
+      ],
+      "relacionadas": [
+        "ACA06",
+        "ACA07",
+        "ACA04"
+      ]
+    },
+    {
+      "id": "ACA06",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "equivalencia",
+        "convalidacion",
+        "materias aprobadas otra institucion"
+      ],
+      "pregunta": "¿Cómo solicito equivalencias de materias de otra universidad?",
+      "respuesta": "Debes presentar tu certificación de notas original y el programa analítico de las asignaturas en la oficina de Registro para su evaluación y convalidación.",
+      "explicacion": [
+        "Solicita en tu universidad de origen la certificación de notas original y los programas analíticos de las asignaturas.",
+        "Entrega ambos documentos en la oficina de Registro.",
+        "La comisión académica evalúa y te notifica las asignaturas convalidadas."
+      ],
+      "relacionadas": [
+        "ACA05",
+        "ACA07",
+        "ACA03"
+      ]
+    },
+    {
+      "id": "ACA07",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "pensum",
+        "plan de estudios",
+        "malla curricular"
+      ],
+      "pregunta": "¿Dónde puedo consultar el pensum de mi carrera?",
+      "respuesta": "El pensum académico de tu carrera está disponible en el portal estudiantil, en la sección 'Plan de Estudios', y también puede ser consultado con tu coordinador de carrera.",
+      "explicacion": [
+        "Ingresa al portal estudiantil, sección Plan de Estudios.",
+        "Ahí aparece el pensum completo de tu carrera con requisitos entre asignaturas.",
+        "También puedes solicitarlo impreso con tu coordinador de carrera."
+      ],
+      "relacionadas": [
+        "ACA01",
+        "ACA02",
+        "ACA12"
+      ]
+    },
+    {
+      "id": "ACA08",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "graduacion",
+        "requisitos graduarme",
+        "tramite de grado"
+      ],
+      "pregunta": "¿Cuáles son los requisitos para solicitar mi graduación?",
+      "respuesta": "Debes haber aprobado el 100% de tu pensum, estar solvente económicamente y presentar la solicitud de graduación en Registro dentro de las fechas establecidas.",
+      "explicacion": [
+        "Verifica en el portal que hayas aprobado el 100% de tu pensum.",
+        "Asegúrate de estar solvente económicamente (sin saldos pendientes).",
+        "Presenta la solicitud de graduación en Registro dentro de las fechas establecidas.",
+        "Registro te confirmará los requisitos finales y la fecha de la ceremonia."
+      ],
+      "relacionadas": [
+        "ACA09",
+        "SOP10",
+        "ACA07"
+      ]
+    },
+    {
+      "id": "ACA09",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "practica profesional",
+        "pps",
+        "horas practica"
+      ],
+      "pregunta": "¿Cómo gestiono mi práctica profesional supervisada?",
+      "respuesta": "Debes acercarte a la coordinación de prácticas profesionales de tu facultad para conocer los convenios disponibles y los requisitos de inscripción.",
+      "explicacion": [
+        "Acércate a la coordinación de prácticas profesionales de tu facultad.",
+        "Revisa los convenios de empresas disponibles y los requisitos de inscripción.",
+        "Inscribe tu práctica en el período correspondiente y reporta tus avances según el reglamento."
+      ],
+      "relacionadas": [
+        "VID04",
+        "ACA08",
+        "ACA07"
+      ]
+    },
+    {
+      "id": "ACA10",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "reposicion",
+        "reponer examen",
+        "no presente examen",
+        "examen reposicion"
+      ],
+      "pregunta": "¿Cómo solicito la reposición de un examen?",
+      "respuesta": "Debes presentar la solicitud de reposición en Registro dentro de los 3 días hábiles siguientes al examen, adjuntando la justificación (médica o laboral) y pagando el arancel correspondiente. El docente programa la nueva fecha.",
+      "explicacion": [
+        "Presenta la solicitud de reposición en Registro dentro de los 3 días hábiles siguientes al examen.",
+        "Adjunta la justificación correspondiente (constancia médica o laboral).",
+        "Paga el arancel de reposición en Caja y conserva el comprobante.",
+        "El docente de la asignatura te confirmará la nueva fecha del examen."
+      ],
+      "relacionadas": [
+        "HOR05",
+        "ACA11",
+        "SOP10"
+      ]
+    },
+    {
+      "id": "ACA11",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "calificaciones",
+        "calificacion",
+        "ver notas",
+        "mis notas parciales",
+        "cuanto saque"
+      ],
+      "pregunta": "¿Cómo consulto mis calificaciones o notas parciales?",
+      "respuesta": "Ingresa al portal estudiantil, sección 'Calificaciones', y selecciona el período. Ahí verás las notas de cada parcial por asignatura. Si detectas un error, repórtalo a tu docente dentro del plazo de revisión.",
+      "explicacion": [
+        "Ingresa al portal estudiantil con tu usuario y contraseña.",
+        "Entra a la sección Calificaciones y selecciona el período académico.",
+        "Revisa las notas de cada parcial por asignatura.",
+        "Si detectas un error, solicita revisión a tu docente dentro del plazo establecido."
+      ],
+      "relacionadas": [
+        "ACA12",
+        "HOR05",
+        "ACA10"
+      ]
+    },
+    {
+      "id": "ACA12",
+      "categoria": "Procesos Academicos",
+      "palabras_clave": [
+        "indice academico",
+        "promedio",
+        "indice",
+        "calcular promedio"
+      ],
+      "pregunta": "¿Qué es el índice académico y cómo lo calculo?",
+      "respuesta": "El índice académico es el promedio ponderado de tus calificaciones finales. Se calcula sumando (nota final × unidades valorativas) de cada asignatura y dividiendo entre el total de unidades cursadas. Puedes verlo en el portal estudiantil, sección Historial.",
+      "explicacion": [
+        "Multiplica la nota final de cada asignatura por sus unidades valorativas.",
+        "Suma todos esos productos del período.",
+        "Divide el resultado entre el total de unidades valorativas cursadas.",
+        "El portal estudiantil (sección Historial) lo calcula automáticamente cada período."
+      ],
+      "relacionadas": [
+        "ACA11",
+        "ACA01",
+        "SOP03"
+      ]
+    },
+    {
+      "id": "SOP01",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "clave",
+        "contrasena",
+        "olvide contrasena",
+        "campus virtual",
+        "restablecer"
+      ],
+      "pregunta": "Olvidé mi clave del campus virtual, ¿qué hago?",
+      "respuesta": "Ingresa al enlace 'Soportes / Olvidé mi contraseña' en la página de inicio del campus, o envía un correo con tu número de cuenta a soporte@universidad.edu.",
+      "explicacion": [
+        "En la página de inicio del campus virtual, usa la opción 'Olvidé mi contraseña'.",
+        "Sigue el enlace de recuperación que llega a tu correo registrado.",
+        "Si no recibes el correo, escribe a soporte@universidad.edu indicando tu número de cuenta."
+      ],
+      "relacionadas": [
+        "SOP02",
+        "SOP09",
+        "SOP07"
+      ]
+    },
+    {
+      "id": "SOP02",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "correo institucional",
+        "email institucional",
+        "recuperar correo"
+      ],
+      "pregunta": "¿Cómo restablezco mi contraseña del correo institucional?",
+      "respuesta": "Accede al portal de soporte técnico institucional con tu número de cuenta y responde las preguntas de seguridad, o contacta a soporte@universidad.edu.",
+      "explicacion": [
+        "Accede al portal de soporte técnico institucional con tu número de cuenta.",
+        "Responde las preguntas de seguridad para restablecer la contraseña.",
+        "Si el problema persiste, contacta a soporte@universidad.edu desde un correo alterno."
+      ],
+      "relacionadas": [
+        "SOP01",
+        "SOP07",
+        "SOP09"
+      ]
+    },
+    {
+      "id": "SOP03",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "beca",
+        "becas",
+        "ayuda financiera"
+      ],
+      "pregunta": "¿Qué becas ofrece la institución?",
+      "respuesta": "La universidad ofrece becas académicas, deportivas y socioeconómicas. Puedes solicitar información detallada en la oficina de Bienestar Estudiantil.",
+      "explicacion": [
+        "La universidad ofrece becas académicas (excelencia), deportivas y socioeconómicas.",
+        "Solicita el formulario y los requisitos en la oficina de Bienestar Estudiantil.",
+        "Presenta tu solicitud dentro de las fechas de convocatoria de cada período."
+      ],
+      "relacionadas": [
+        "ACA12",
+        "VID01",
+        "SOP04"
+      ]
+    },
+    {
+      "id": "SOP04",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "psicologia",
+        "orientacion psicologica",
+        "salud mental"
+      ],
+      "pregunta": "¿La institución ofrece orientación psicológica?",
+      "respuesta": "Sí, el departamento de Bienestar Universitario ofrece atención psicológica gratuita para estudiantes. Puedes agendar tu cita en el edificio de Bienestar Universitario.",
+      "explicacion": [
+        "El departamento de Bienestar Universitario ofrece atención psicológica gratuita para estudiantes.",
+        "Agenda tu cita en el edificio de Bienestar, planta baja, o al correo institucional del departamento.",
+        "La atención es confidencial."
+      ],
+      "relacionadas": [
+        "INF08",
+        "SOP03",
+        "VID02"
+      ]
+    },
+    {
+      "id": "SOP05",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "bancos",
+        "formas de pago",
+        "modalidades pago",
+        "pagar en linea"
+      ],
+      "pregunta": "¿Cuáles son las modalidades y bancos autorizados para el pago de matrícula?",
+      "respuesta": "Puedes pagar en los bancos autorizados (consulta la lista vigente en el portal estudiantil), en línea con tarjeta de crédito/débito, o presencialmente en Caja.",
+      "explicacion": [
+        "Bancos autorizados: consulta la lista vigente en el portal estudiantil (sección Pagos).",
+        "En línea: portal estudiantil con tarjeta de crédito o débito.",
+        "Presencial: área de Caja en el edificio principal."
+      ],
+      "relacionadas": [
+        "INF01",
+        "SOP10",
+        "HOR01"
+      ]
+    },
+    {
+      "id": "SOP06",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "carnet",
+        "carnet estudiantil",
+        "identificacion"
+      ],
+      "pregunta": "¿Cómo obtengo o renuevo mi carnet estudiantil?",
+      "respuesta": "El carnet estudiantil se solicita en la oficina de Bienestar Universitario presentando tu recibo de matrícula vigente y una fotografía reciente.",
+      "explicacion": [
+        "Solicita el carnet en la oficina de Bienestar Universitario.",
+        "Presenta tu recibo de matrícula vigente y una fotografía reciente.",
+        "La renovación se hace cada período académico con el nuevo recibo de matrícula."
+      ],
+      "relacionadas": [
+        "INF05",
+        "INF07",
+        "INF04"
+      ]
+    },
+    {
+      "id": "SOP07",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "wifi",
+        "internet",
+        "red campus",
+        "conexion"
+      ],
+      "pregunta": "¿Cómo me conecto al wifi del campus?",
+      "respuesta": "Selecciona la red institucional en tu dispositivo e ingresa tus credenciales de campus virtual (usuario y contraseña) para autenticarte.",
+      "explicacion": [
+        "Selecciona la red wifi institucional en tu dispositivo.",
+        "Ingresa tu usuario y contraseña del campus virtual para autenticarte.",
+        "Si no logras conectarte, verifica tu contraseña o solicita apoyo en los laboratorios de cómputo."
+      ],
+      "relacionadas": [
+        "SOP01",
+        "INF05",
+        "SOP09"
+      ]
+    },
+    {
+      "id": "SOP08",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "asesor",
+        "hablar con humano",
+        "soporte humano",
+        "agente real"
+      ],
+      "pregunta": "Quiero hablar con un asesor humano",
+      "respuesta": "Entendido. Te voy a transferir con un agente humano. Por favor espera mientras te compartimos los canales y horarios de atención presencial disponibles.",
+      "explicacion": [
+        "Te comunico de inmediato con los canales de atención humana.",
+        "Presencial: Oficina de Registro, edificio principal (Lun-Vie 8:00 AM - 7:00 PM, Sáb 8:00 AM - 12:00 PM).",
+        "Correo: soporte@universidad.edu."
+      ],
+      "relacionadas": [
+        "INF03",
+        "HOR01"
+      ]
+    },
+    {
+      "id": "SOP09",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "clases virtuales",
+        "videoconferencia",
+        "zoom",
+        "teams",
+        "clase en linea"
+      ],
+      "pregunta": "¿Cómo accedo a mis clases virtuales o videoconferencias?",
+      "respuesta": "Los enlaces de videoconferencia se publican dentro de cada asignatura en el campus virtual. Ingresa con tus credenciales, abre la asignatura y usa el enlace de la sesión programada. Necesitas tu cuenta institucional activa.",
+      "explicacion": [
+        "Ingresa al campus virtual con tu usuario y contraseña.",
+        "Abre la asignatura correspondiente: el enlace de la videoconferencia aparece en la sección de la semana.",
+        "Únete con tu cuenta institucional para que se registre tu asistencia.",
+        "Si el enlace no funciona, notifícalo a tu docente o a soporte@universidad.edu."
+      ],
+      "relacionadas": [
+        "SOP01",
+        "SOP02",
+        "SOP07"
+      ]
+    },
+    {
+      "id": "SOP10",
+      "categoria": "Soporte y Cuentas",
+      "palabras_clave": [
+        "factura",
+        "recibo",
+        "comprobante de pago",
+        "constancia de pago",
+        "estado de cuenta"
+      ],
+      "pregunta": "¿Cómo obtengo una factura o constancia de mis pagos?",
+      "respuesta": "Puedes descargar tus comprobantes desde el portal estudiantil, sección 'Estado de Cuenta'. Para facturas con datos fiscales o constancias firmadas, solicítalas en el área de Caja presentando tu recibo original.",
+      "explicacion": [
+        "Ingresa al portal estudiantil, sección Estado de Cuenta.",
+        "Descarga el comprobante del pago que necesitas.",
+        "Si requieres factura con datos fiscales o constancia firmada y sellada, solicítala en Caja con tu recibo original."
+      ],
+      "relacionadas": [
+        "INF01",
+        "SOP05",
+        "ACA03"
+      ]
+    },
+    {
+      "id": "VID01",
+      "categoria": "Vida Estudiantil",
+      "palabras_clave": [
+        "deportes",
+        "deporte",
+        "futbol",
+        "equipo deportivo",
+        "seleccion",
+        "entrenamientos"
+      ],
+      "pregunta": "¿Qué deportes o equipos representativos tiene la universidad?",
+      "respuesta": "La universidad cuenta con equipos de fútbol, baloncesto, voleibol y ajedrez. Las inscripciones y horarios de entrenamiento se gestionan en la oficina de Bienestar Universitario, y los deportistas destacados pueden optar a beca deportiva.",
+      "explicacion": [
+        "Disciplinas disponibles: fútbol, baloncesto, voleibol y ajedrez.",
+        "Inscríbete en la oficina de Bienestar Universitario al inicio del período.",
+        "Los entrenamientos se realizan en la cancha del campus según el calendario de cada disciplina.",
+        "Los deportistas destacados pueden aplicar a la beca deportiva."
+      ],
+      "relacionadas": [
+        "SOP03",
+        "VID03",
+        "INF08"
+      ]
+    },
+    {
+      "id": "VID02",
+      "categoria": "Vida Estudiantil",
+      "palabras_clave": [
+        "grupos estudiantiles",
+        "voluntariado",
+        "asociacion de estudiantes",
+        "club"
+      ],
+      "pregunta": "¿Cómo me uno a grupos estudiantiles o voluntariado?",
+      "respuesta": "Cada facultad tiene una asociación de estudiantes y existen clubes académicos y programas de voluntariado coordinados por Bienestar Universitario. Al inicio de cada período se realiza una feria de grupos donde puedes inscribirte.",
+      "explicacion": [
+        "Consulta en Bienestar Universitario la lista de clubes, asociaciones y programas de voluntariado activos.",
+        "Al inicio de cada período se realiza una feria de grupos estudiantiles en la plaza central.",
+        "Inscríbete directamente con el coordinador del grupo de tu interés.",
+        "Las horas de voluntariado pueden acreditarse como horas de vinculación social."
+      ],
+      "relacionadas": [
+        "VID03",
+        "VID01",
+        "SOP04"
+      ]
+    },
+    {
+      "id": "VID03",
+      "categoria": "Vida Estudiantil",
+      "palabras_clave": [
+        "eventos",
+        "actividades culturales",
+        "conciertos",
+        "ferias",
+        "actividades"
+      ],
+      "pregunta": "¿Dónde veo los eventos y actividades culturales?",
+      "respuesta": "El calendario de eventos, ferias y actividades culturales se publica en el portal estudiantil, en las pantallas informativas del campus y en las redes sociales oficiales de la universidad.",
+      "explicacion": [
+        "Revisa la sección Eventos del portal estudiantil.",
+        "Sigue las redes sociales oficiales de la universidad, donde se anuncian conciertos, ferias y actividades.",
+        "Las pantallas informativas del campus muestran la programación de la semana."
+      ],
+      "relacionadas": [
+        "VID02",
+        "INF09",
+        "VID01"
+      ]
+    },
+    {
+      "id": "VID04",
+      "categoria": "Vida Estudiantil",
+      "palabras_clave": [
+        "bolsa de trabajo",
+        "empleo",
+        "pasantia",
+        "pasantias",
+        "vacantes"
+      ],
+      "pregunta": "¿La universidad tiene bolsa de trabajo o pasantías?",
+      "respuesta": "Sí. La oficina de Vinculación Empresarial publica vacantes de empleo y pasantías con empresas en convenio. Regístrate en la bolsa de trabajo desde el portal estudiantil y sube tu hoja de vida actualizada.",
+      "explicacion": [
+        "Ingresa al portal estudiantil, sección Bolsa de Trabajo.",
+        "Completa tu perfil y sube tu hoja de vida actualizada.",
+        "Postúlate a las vacantes o pasantías publicadas por las empresas en convenio.",
+        "La oficina de Vinculación Empresarial te contactará si avanzas en el proceso."
+      ],
+      "relacionadas": [
+        "ACA09",
+        "VID05",
+        "ACA08"
+      ]
+    },
+    {
+      "id": "VID05",
+      "categoria": "Vida Estudiantil",
+      "palabras_clave": [
+        "intercambio",
+        "movilidad estudiantil",
+        "intercambio academico",
+        "estudiar en el extranjero"
+      ],
+      "pregunta": "¿Existen programas de intercambio académico?",
+      "respuesta": "La universidad mantiene convenios de movilidad estudiantil con universidades de la región. Los requisitos generales son índice académico mínimo de 80%, haber aprobado el 50% del pensum y aplicar en la convocatoria anual de la oficina de Relaciones Internacionales.",
+      "explicacion": [
+        "Verifica los requisitos: índice académico mínimo de 80% y al menos 50% del pensum aprobado.",
+        "Consulta los convenios vigentes en la oficina de Relaciones Internacionales.",
+        "Aplica dentro de la convocatoria anual con la documentación solicitada.",
+        "Si eres seleccionado, gestiona la convalidación previa de las asignaturas a cursar."
+      ],
+      "relacionadas": [
+        "ACA12",
+        "ACA06",
+        "VID04"
+      ]
+    }
+  ]
+}

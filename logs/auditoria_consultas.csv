@@ -1,0 +1,53 @@
+timestamp,session_id,consulta_original,tokens_detectados,faq_id_asignada,categoria,puntaje,resultado,intentos_fallidos_sesion
+2026-07-30T18:00:23,user1,¿Dónde pago la matrícula?,pago matricula,INF01,Infraestructura,9,respondida,0
+2026-07-30T18:00:23,user2,a que hora son las clases en la jornada matutina,hora clases jornada matutina,HOR02,Horarios,12,respondida,0
+2026-07-30T18:00:23,user3,como hago la prematricula,hago prematricula,ACA02,Procesos Academicos,3,respondida,0
+2026-07-30T18:00:23,user4,se me olvido mi clave del campus virtual,olvido clave campus virtual,SOP01,Soporte y Cuentas,13,respondida,0
+2026-07-30T18:00:23,user5,donde estan los laboratorios de computo,estan laboratorios computo,INF05,Infraestructura,17,respondida,0
+2026-07-30T18:00:23,user6,cuantas materias puedo matricular,cuantas materias matricular,ACA01,Procesos Academicos,4,respondida,0
+2026-07-30T18:00:23,user7,ofrecen becas en la universidad,becas,SOP03,Soporte y Cuentas,3,respondida,0
+2026-07-30T18:00:23,user8,necesito hablar con un asesor,necesito hablar asesor,N/A,N/A,0,transferencia_explicita,0
+2026-07-30T18:00:23,user9,xkjasldjk asdkj,xkjasldjk asdkj,N/A,N/A,0,sin_resultado,1
+2026-07-30T18:00:23,user9,blablabla,blablabla,N/A,N/A,0,sin_resultado,2
+2026-07-30T18:00:23,user9,no entiendo nada,entiendo nada,N/A,N/A,0,transferencia_bucle,3
+2026-07-30T18:00:23,user10,cual es el horario de registro,horario registro,HOR01,Horarios,15,respondida,0
+2026-07-30T18:00:23,user11,donde queda la biblioteca,queda biblioteca,INF04,Infraestructura,15,respondida,0
+2026-07-30T18:00:23,user12,como solicito mi certificacion de notas,solicito certificacion notas,ACA03,Procesos Academicos,15,respondida,0
+2026-07-30T18:00:23,user13,donde queda el auditorio,queda auditorio,INF09,Infraestructura,15,respondida,0
+2026-07-30T18:00:23,user14,donde puedo sacar fotocopias e imprimir,sacar fotocopias e imprimir,INF10,Infraestructura,7,respondida,0
+2026-07-30T18:00:23,user15,cual es el horario de la biblioteca,horario biblioteca,HOR07,Horarios,15,respondida,0
+2026-07-30T18:00:23,user16,hasta que hora estan abiertos los laboratorios,hasta hora estan abiertos laboratorios,HOR08,Horarios,19,respondida,0
+2026-07-30T18:00:23,user17,"no presente el examen, como pido reposicion",presente examen pido reposicion,ACA10,Procesos Academicos,24,respondida,0
+2026-07-30T18:00:23,user18,donde veo mis calificaciones,veo calificaciones,ACA11,Procesos Academicos,4,respondida,0
+2026-07-30T18:00:23,user19,como calculo mi indice academico,calculo indice academico,ACA12,Procesos Academicos,13,respondida,0
+2026-07-30T18:00:23,user20,como entro a mis clases virtuales por zoom,entro clases virtuales zoom,SOP09,Soporte y Cuentas,13,respondida,0
+2026-07-30T18:00:23,user21,necesito una constancia de pago,necesito constancia pago,SOP10,Soporte y Cuentas,12,respondida,0
+2026-07-30T18:00:23,user22,que deportes tiene la universidad,deportes,VID01,Vida Estudiantil,5,respondida,0
+2026-07-30T18:00:23,user23,como me uno a un grupo de voluntariado,uno grupo voluntariado,VID02,Vida Estudiantil,4,respondida,0
+2026-07-30T18:00:23,user24,donde veo los eventos y actividades,veo eventos actividades,VID03,Vida Estudiantil,9,respondida,0
+2026-07-30T18:00:23,user25,tienen bolsa de trabajo o pasantias,tienen bolsa trabajo pasantias,VID04,Vida Estudiantil,13,respondida,0
+2026-07-30T18:00:23,user26,hay programas de intercambio academico,programas intercambio academico,VID05,Vida Estudiantil,12,respondida,0
+2026-07-30T18:00:23,user27,necesito una constancia de estudios,necesito constancia estudios,ACA03,Procesos Academicos,12,respondida,0
+2026-07-30T18:00:23,user28,cuando son los examenes parciales,examenes parciales,HOR05,Horarios,6,respondida,0
+2026-07-30T18:00:23,est-nuevo-01,"hola, soy nuevo, ¿dónde pago la matrícula?",hola nuevo pago matricula,INF01,Infraestructura,9,respondida,0
+2026-07-30T18:00:23,est-nuevo-01,y cuales son las formas de pago o bancos autorizados,formas pago bancos autorizados,SOP05,Soporte y Cuentas,15,respondida,0
+2026-07-30T18:00:23,est-nuevo-01,donde queda el aula B-204,queda aula b 204,INF02,Infraestructura,3,respondida,0
+2026-07-30T18:00:23,est-nuevo-02,a que hora empiezan las clases en la jornada nocturna,hora empiezan clases jornada nocturna,HOR02,Horarios,12,respondida,0
+2026-07-30T18:00:23,est-nuevo-02,como me conecto al wifi del campus,conecto wifi campus,SOP07,Soporte y Cuentas,6,respondida,0
+2026-07-30T18:00:23,est-nuevo-02,[MENU] ¿Dónde se encuentran las áreas de comida?,encuentran areas comida,INF06,Infraestructura,0,respondida_menu,0
+2026-07-30T18:00:23,est-nuevo-03,olvide mi clave del campus virtual,olvide clave campus virtual,SOP01,Soporte y Cuentas,15,respondida,0
+2026-07-30T18:00:23,est-nuevo-03,como entro a mis clases virtuales,entro clases virtuales,SOP09,Soporte y Cuentas,10,respondida,0
+2026-07-30T18:00:23,est-nuevo-03,necesito una constancia de pago,necesito constancia pago,SOP10,Soporte y Cuentas,12,respondida,0
+2026-07-30T18:00:23,est-nuevo-03,quiero hablar con un asesor,quiero hablar asesor,N/A,N/A,0,transferencia_explicita,0
+2026-07-30T18:00:23,est-nuevo-04,[MENU] ¿Qué deportes o equipos representativos tiene la universidad?,deportes equipos representativos,VID01,Vida Estudiantil,0,respondida_menu,0
+2026-07-30T18:00:23,est-nuevo-04,y como me uno a un voluntariado,uno voluntariado,VID02,Vida Estudiantil,3,respondida,0
+2026-07-30T18:00:23,est-nuevo-04,donde veo los eventos de la universidad,veo eventos,INF09,Infraestructura,3,respondida,0
+2026-07-30T18:00:23,est-nuevo-05,lo de la cosa esa del sistema,cosa sistema,N/A,N/A,0,sin_resultado,1
+2026-07-30T18:00:23,est-nuevo-05,me refiero a ver mis calificaciones,refiero ver calificaciones,ACA11,Procesos Academicos,7,respondida,0
+2026-07-30T18:00:23,est-nuevo-05,y como calculo mi indice academico,calculo indice academico,ACA12,Procesos Academicos,13,respondida,0
+2026-07-30T18:00:23,est-nuevo-06,[MENU] ¿Cuál es el horario de la biblioteca?,horario biblioteca,HOR07,Horarios,0,respondida_menu,0
+2026-07-30T18:00:23,est-nuevo-06,[MENU] ¿Dónde está la librería o el centro de fotocopiado?,libreria centro fotocopiado,INF10,Infraestructura,0,respondida_menu,0
+2026-07-30T18:00:23,est-nuevo-06,[MENU] ¿Cómo puedo realizar la prematrícula o matrícula de mis clases?,realizar prematricula matricula clases,ACA02,Procesos Academicos,0,respondida_menu,0
+2026-07-30T18:00:23,est-nuevo-06,[MENU] ¿Qué becas ofrece la institución?,becas,SOP03,Soporte y Cuentas,0,respondida_menu,0
+2026-07-30T18:03:03,test1,como pido reposicion de examen,pido reposicion examen,ACA10,Procesos Academicos,18,respondida,0
+2026-07-30T18:03:03,test1,[MENU] ¿La universidad tiene bolsa de trabajo o pasantías?,bolsa trabajo pasantias,VID04,Vida Estudiantil,0,respondida_menu,0

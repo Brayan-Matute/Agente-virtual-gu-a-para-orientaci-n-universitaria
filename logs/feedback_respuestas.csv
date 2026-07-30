@@ -1,0 +1,20 @@
+timestamp,session_id,faq_id,categoria,util
+2026-07-30T18:00:23,est-nuevo-01,INF01,Infraestructura,1
+2026-07-30T18:00:23,est-nuevo-01,SOP05,Soporte y Cuentas,1
+2026-07-30T18:00:23,est-nuevo-01,INF02,Infraestructura,1
+2026-07-30T18:00:23,est-nuevo-02,HOR02,Horarios,1
+2026-07-30T18:00:23,est-nuevo-02,SOP07,Soporte y Cuentas,1
+2026-07-30T18:00:23,est-nuevo-02,INF06,Infraestructura,1
+2026-07-30T18:00:23,est-nuevo-03,SOP01,Soporte y Cuentas,1
+2026-07-30T18:00:23,est-nuevo-03,SOP09,Soporte y Cuentas,1
+2026-07-30T18:00:23,est-nuevo-03,SOP10,Soporte y Cuentas,0
+2026-07-30T18:00:23,est-nuevo-04,VID01,Vida Estudiantil,1
+2026-07-30T18:00:23,est-nuevo-04,VID02,Vida Estudiantil,1
+2026-07-30T18:00:23,est-nuevo-04,INF09,Infraestructura,1
+2026-07-30T18:00:23,est-nuevo-05,ACA11,Procesos Academicos,1
+2026-07-30T18:00:23,est-nuevo-05,ACA12,Procesos Academicos,1
+2026-07-30T18:00:23,est-nuevo-06,HOR07,Horarios,1
+2026-07-30T18:00:23,est-nuevo-06,INF10,Infraestructura,1
+2026-07-30T18:00:23,est-nuevo-06,ACA02,Procesos Academicos,1
+2026-07-30T18:00:23,est-nuevo-06,SOP03,Soporte y Cuentas,0
+2026-07-30T18:03:03,test1,VID04,Vida Estudiantil,1
